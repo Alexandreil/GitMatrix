@@ -1,27 +1,30 @@
 program matrix;
-uses Crt; 
-var x,y,s:integer;
+uses crt;
+var a,x,y,s:integer;
+
 begin
-//Делаем фон
-textbackground(0);
-clrscr;
-//Делаем рандомное появление чисел
-y:=1;
-x:=1;
-randomize;
-//Создаем нечто похожее на матрицу
-while true do
-  begin
-    textcolor(green);
-    gotoxy(x,y);
-    s:=random(0,1);
-    write( '  ', s);
-    x:=x+1;
-//Меняем координаты
-    if x <> 121 then
+  randomize;
+  textbackground(0);
+  clrscr;
+  
+  a:=0;
+  y:=random(0,20);
+  x:=random(1,120);
+  
+  while true do
+    begin
+      s:=random(0,1);
+      textcolor(green);
+      gotoxy(x,y);
+      write(s,'    ');
+      y:=y+1;
+      delay(50);
+      a:=a+1;
+    if a>7 then
       begin
-        x:=0;
-        y:=y+1;
+        y:=random(0,20);
+        x:=random(1,120);
+        a:=0;
       end;
-  end;
+    end;
 end.
